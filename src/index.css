@@ -1,13 +1,81 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  margin: 5px auto;
+  width: 60%;
+  background: rgb(182, 173, 173);
+  box-shadow: 10px;
+  background: rgb(168, 144, 144);
+
+  /* border: 5px solid black; */
+  /* border: 2px solid black; */
+}
+
+.input1 {
+  width: 25%;
+  color: rgb(79, 46, 74);
+  border: 5px solid rgb(135,48,48);
+
+}
+
+.input2 {
+  width: 75%;
+  color: rgb(79, 46, 74);
+  border: 5px solid rgb(135, 48, 48);
+
+}
+
+
+.table{
+  width: 100%;
+  border: 1px solid rgb(135, 48, 48);
+  border-collapse: collapse;
+}
+
+.btn {
+  outline: none;
+  border: 1px solid rgb(135,48,48);
+  background: rgb(168, 144, 144);
+  text-align: center;
+  color: rgb(79, 46, 74);
+
+
+}
+
+.btnbox {
+  width: 45px;
+  height: 25px;
+  text-align: center;
+}
+
+.id {
+  width: 50px;
+  text-align: center;
+  color: rgb(79, 46, 74);
+  
+
+}
+.number {
+  text-align: center;
+  color: rgb(79, 46, 74);
+
+}
+
+.name {
+
+  color: rgb(79, 46, 74);
+
+
+  
+}
+
+.header-name {
+  color: rgb(79, 46, 74);
+
+
 }
