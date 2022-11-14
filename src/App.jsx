@@ -204,7 +204,7 @@ class Student extends React.Component{
 
     return (
     <div className='container'>
-      <h1>Selected: {this.state.selected?. name}</h1>
+      <h1>Selected: {this.state.selected?.name}</h1>
 
 
       <input className='input1' onChange={filter} name="id" type="text" placeholder='ID' />
@@ -222,10 +222,10 @@ class Student extends React.Component{
             this.state.student.map((st, index) => {
               let check = this.state.selected?.id === st.id ;
               return (
-              <tr>
+              <tr key={st.id}>
                 {/* <td>{index+1}</td> */}
                 <td className='number'>{st.id}</td>
-                <td className='name'>{check ? <input onChange={onChangeName} value={this.state.selected . name    }/>: st.name}</td>
+                <td className='name'>{check ? <input onChange={onChangeName} value={this.state.selected.name    }/>: st.name}</td>
                 <td className='btnbox'>
                   {check ? (
 
