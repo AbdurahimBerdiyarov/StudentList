@@ -157,6 +157,8 @@ import "./index.css";
 class Student extends React.Component{
   state={
     student: student,
+    selected: null,
+
 
     };
   
@@ -173,12 +175,36 @@ class Student extends React.Component{
     const filter = ({target: {value, name}})=>{
       let res = student.filter((vl) => `${vl[name]}`.toLowerCase().includes(value.toLowerCase()));
       this.setState({student: res})  
-
-
     }
+
+    const  onEdit = (value) => {
+     console.log(value);
+     this.setState({  selected: value});
+    };
+
+    const  onSave = (value) => {
+      
+      let res = this.state.student.map((value)=> this.state.selected?.id === value.id? this.state.selected : value);
+      this.setState({student: res, selected: null})
+     };
+
+     const  onCancel = (value) => {
+      console.log(value);
+      this.setState({ selected: null});
+     };
+
+
+     const onChangeName= ({target:{value}}) => {
+      this.setState((state)=>{return {selected: {...state.selected, name: value} }; 
+      });
+      console.log(value);
+
+     };
+    
 
     return (
     <div className='container'>
+      <h1>Selected: {this.state.selected?. name}</h1>
 
 
       <input className='input1' onChange={filter} name="id" type="text" placeholder='ID' />
@@ -194,29 +220,67 @@ class Student extends React.Component{
         <tbody>
           {
             this.state.student.map((st, index) => {
+              let check = this.state.selected?.id === st.id ;
               return (
-              <tr key={st.id}>
+              <tr>
                 {/* <td>{index+1}</td> */}
                 <td className='number'>{st.id}</td>
-                <td className='name'>{st.name}</td>
+                <td className='name'>{check ? <input onChange={onChangeName} value={this.state.selected . name    }/>: st.name}</td>
                 <td className='btnbox'>
-                <button className='btn' onClick={()=>onDelete(st.id)}>delete</button>
+                  {check ? (
+
+                      <React.Fragment>
+                       <button className='btn' onClick={() => onCancel(st.id)}>cancel</button>
+                       <button className='btn' onClick={() => onSave(st)}>  save</button>
+                      </React.Fragment>
+                  ) : (
+                      <React.Fragment>
+                       <button className='btn' onClick={() => onDelete(st.id)}>delete</button>
+                       <button className='btn' onClick={() => onEdit(st)}>  edit</button>
+                      </React.Fragment>
+
+ 
+
+
+
+                  )
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                }
+
+                 
+                            
+
+               
+                   
+
+                 
+
+
+                
                 </td>
               </tr>
 
           
 
 
-              )
-            }) 
-          }
+              );
+          })} 
+          
           
         </tbody>
       </table>
 
       
 
-    </div>
+    </div>       
     );
   }
   
